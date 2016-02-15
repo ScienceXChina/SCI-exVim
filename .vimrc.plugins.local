@@ -1,0 +1,93 @@
+" This file will be loaded after .vimrc.plugins, 
+" but before 'filetype plugin on', 'filetype indent on' and 'syntax on' been executed. 
+" This file is designed to be safe to add your own plugins and plugins' configuration.
+
+" Add your customized plugins:
+" Example: Plugin 'foo/bar/foobar'
+
+Plugin 'tacahiroy/ctrlp-funky'
+" {{{
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+" //If you want to have this highlight feature, you may configure like this:
+let g:ctrlp_funky_matchtype = 'path'
+" }}}
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'powerline/fonts'
+" {{{
+let g:airline_theme="luna"
+"这个是安装字体后 必须设置此项"
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+" " powerline symbols
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" set laststatus=2
+" set t_Co=256
+"打开tabline功能,方便查看Buffer和切换，这个功能比较不错"
+"我还省去了minibufexpl插件，因为我习惯在1个Tab下用多个buffer"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+"设置切换Buffer快捷键"
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
+" 关闭状态显示空白符号计数,这个对我用处不大"
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
+" }}}
+
+Plugin 'airblade/vim-gitgutter'
+" {{{
+let g:gitgutter_avoid_cmd_prompt_on_windows = 0
+" }}}
+
+Plugin 'mhinz/vim-startify'
+" {{{
+let g:startify_custom_header = [
+            \ '                                ',
+            \ '            __                  ',
+            \ '    __  __ /\_\    ___ ___      ',
+            \ '   /\ \/\ \\/\ \ /'' __` __`\   ',
+            \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \   ',
+            \ '    \ \___/  \ \_\ \_\ \_\ \_\  ',
+            \ '     \/__/    \/_/\/_/\/_/\/_/  ',
+            \ '',
+            \ '',
+            \ ]
+" }}}
+
+Plugin 'MattesGroeger/vim-bookmarks'
+" {{{
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '▶'
+let g:bookmark_highlight_lines = 1
+" }}}
+
+"" Plugin 'scrooloose/nerdtree'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
+" " {{{
+" let g:NERDTreeIndicatorMapCustom = {
+"     \ "Modified"  : "✹",
+"     \ "Staged"    : "✚",
+"     \ "Untracked" : "✭",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "✖",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ "Unknown"   : "?"
+"     \ }
+" " }}}

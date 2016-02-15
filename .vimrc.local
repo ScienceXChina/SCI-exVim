@@ -1,0 +1,10 @@
+" This file will be loaded at the end of .vimrc.
+" This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
+colorscheme pyte
+
+" Highlight comment
+hi Comment ctermfg=yellow ctermbg=NONE 
+
+"Set cursor line
+set cursorline
+hi CursorLine  cterm=NONE ctermbg=black
