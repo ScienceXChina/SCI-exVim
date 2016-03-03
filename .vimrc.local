@@ -3,8 +3,18 @@
 colorscheme pyte
 
 " Highlight comment
-hi Comment ctermfg=yellow ctermbg=NONE 
+hi Comment ctermfg=yellow ctermbg=NONE
 
 "Set cursor line
 set cursorline
 hi CursorLine  cterm=NONE ctermbg=black
+
+"Set cursor column
+set cursorcolumn
+hi CursorColumn cterm=NONE ctermbg=black
+
+" Highlight search
+hi Search ctermfg=black ctermbg=yellow
+
+" syntax colorscheme of C++
+" colorscheme  murphy

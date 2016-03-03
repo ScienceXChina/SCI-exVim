@@ -40,6 +40,10 @@ let g:airline_right_sep = '◀'
 "我还省去了minibufexpl插件，因为我习惯在1个Tab下用多个buffer"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+" Smarter tab line "
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
 "设置切换Buffer快捷键"
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
@@ -91,3 +95,20 @@ let g:bookmark_highlight_lines = 1
 "     \ "Unknown"   : "?"
 "     \ }
 " " }}}
+
+Plugin 'Yggdroot/indentLine'
+" {{{
+" Vim
+let g:indentLine_color_term = 124
+nmap <leader>il :IndentLinesToggle<CR>
+" }}}
+
+Plugin 'junegunn/vim-easy-align'
+" {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" }}}
+
+
