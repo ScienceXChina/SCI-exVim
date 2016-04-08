@@ -42,6 +42,10 @@ Plugin 'exvim/ex-vimentry'
 " ex-project
 " ---------------------------------------------------
 Plugin 'exvim/ex-project'
+" F2 only on
+" nnoremap <unique> <silent> <F2> :EXProject<CR>
+" F2 Switch on/off
+nnoremap <unique> <silent> <F2> :EXProjectToggle<CR>
 
 " ex-gsearch
 " ---------------------------------------------------

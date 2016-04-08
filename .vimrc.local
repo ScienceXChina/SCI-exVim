@@ -14,7 +14,7 @@ set cursorcolumn
 hi CursorColumn cterm=NONE ctermbg=black
 
 " Highlight search
-hi Search ctermfg=black ctermbg=yellow
+hi Search ctermfg=blue ctermbg=yellow
 
 " syntax colorscheme of C++
 " colorscheme  murphy
