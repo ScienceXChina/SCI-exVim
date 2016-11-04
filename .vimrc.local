@@ -16,5 +16,119 @@ hi CursorColumn cterm=NONE ctermbg=black
 " Highlight search
 hi Search ctermfg=blue ctermbg=yellow
 
+"" Highlight function
+"hi Function cterm=NONE ctermbg=red
+
+""highlight Functions
+"syn match cFunctions "\<[a-zA-Z_][a-zA-Z_0-9]*\>[^()]*)("me=e-2
+"syn match cFunctions "\<[a-zA-Z_][a-zA-Z_0-9]*\>\s*("me=e-1
+"hi cFunctions guifg=#7fd02e cterm=bold ctermfg=yellow
+"syn match cClass "\<[a-zA-Z_][a-zA-Z_0-9]*\>::"me=e-2
+"hi cClass guifg=#7fd02e cterm=bold ctermfg=yellow
+
 " syntax colorscheme of C++
 " colorscheme  murphy
+
+"This is options that use for pyton
+"let g:pymode_options_max_line_length = 100
+
+function InsertPythonHeader()
+    let l1 = getline(1)
+    if  match('\#!/', l1) == 0
+        exec 1
+        normal O
+        call setline(1,'#!/usr/bin/env python')
+        call setline(2,'#-*- coding:utf-8 -*-')
+        call setline(3,'''''''')
+        call setline(4,'##############################')
+        call setline(5,'@filename:      ')
+        call setline(6,'@author:        ')
+        call setline(7,'@date:          ')
+        call setline(8,'@function:      ')
+        call setline(9,'##############################')
+        call setline(10,'''''''')
+    endif
+endfunction
+au FileType python call InsertPythonHeader()
+
+let python_highlight_all = 1
+"let g:pymode_options_colorcolumn = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+" 不加入这行, 防止黑色括号出现, 很难识别
+" \ ['black',       'SeaGreen3'],
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+au BufNewFile,BufRead *.py
+ set tabstop=4
+ set softtabstop=4
+ set shiftwidth=4
+ set textwidth=79
+ set expandtab
+ set autoindent
+ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+ set tabstop=2
+ set softtabstop=2
+ set shiftwidth=2
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+""""""""""""""""""""""""""
+"Quickly Run Code
+""""""""""""""""""""""""""
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'java'
+        exec "!javac %"
+        exec "!time java %<"
+    elseif &filetype == 'sh'
+        :!time bash %
+    elseif &filetype == 'python'
+        exec "!time python2.7 %"
+    elseif &filetype == 'html'
+        exec "!firefox % &"
+    elseif &filetype == 'go'
+"        exec "!go build %<"
+        exec "!time go run %"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
+    endif
+endfunc
