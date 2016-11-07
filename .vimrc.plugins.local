@@ -154,3 +154,8 @@ imap <F10> <ESC> :NextColorScheme<CR>
 map <F9> :PreviousColorScheme<CR>
 imap <F9> <ESC> :PreviousColorScheme<CR>
 " }}}
+
+Plugin 'guns/xterm-color-table.vim'
+" {{{
+" }}}
+

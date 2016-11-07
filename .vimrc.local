@@ -1,6 +1,6 @@
 " This file will be loaded at the end of .vimrc.
 " This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
-colorscheme pyte
+"colorscheme pyte    "Use the default version of solarized in the .vimrc
 
 " Highlight comment
 hi Comment ctermfg=yellow ctermbg=NONE
