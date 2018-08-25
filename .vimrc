@@ -119,7 +119,8 @@ else
     set t_Co=256 " make sure our terminal use 256 color
     let g:solarized_termcolors = 256
 endif
-colorscheme solarized
+colorscheme monokai
+" colorscheme solarized
 " colorscheme exlightgray
 " colorscheme gruvbox
 
@@ -163,7 +164,7 @@ set maxmempattern=1000 " enlarge maxmempattern from 1000 to ... (2000000 will gi
 
 behave xterm  " set mouse behavior as xterm
 if &term =~ 'xterm'
-    set mouse=a
+    set mouse= 
 endif
 
 "/////////////////////////////////////////////////////////////////////////////

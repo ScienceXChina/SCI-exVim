@@ -159,3 +159,19 @@ Plugin 'guns/xterm-color-table.vim'
 " {{{
 " }}}
 
+Plugin 'taketwo/vim-ros'
+" {{{
+" }}}
+
+Plugin 'ekalinin/Dockerfile.vim'
+" {{{
+" }}}
+
+Plugin 'sickill/vim-monokai'
+" {{{
+" }}}
+
+Plugin 'christoomey/vim-tmux-navigator'
+" {{{
+" }}}
+
